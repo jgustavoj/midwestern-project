@@ -6,3 +6,21 @@
     on that page only (the ones not reused in other pages).
 */
 @import "_variables";
+@import "mixins";
+
+.content {
+  @include breakpoint-up(medium) {
+    padding: 0 5rem;
+  }
+
+  @include breakpoint-up(large) {
+    padding: 0 10rem;
+  }
+
+  @include breakpoint-up(xlarge) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    padding: 2rem;
+  }
+}
