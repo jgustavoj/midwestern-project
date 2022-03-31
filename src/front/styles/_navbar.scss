@@ -1,0 +1,12 @@
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 25px 30px;
+
+  &__link {
+    justify-self: end;
+    align-self: center;
+    font-size: $font-lg;
+  }
+}

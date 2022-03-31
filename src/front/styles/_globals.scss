@@ -1,0 +1,30 @@
+/* 
+    General Styles used on every website (Don't Repeat Yourself)
+*/
+
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $dark-gray;
+  font-family: "Poppins", sans-serif;
+  font-size: $font-sm;
+  font-weight: 500;
+  color: $white;
+  line-height: 1.79;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: $gold;
+}

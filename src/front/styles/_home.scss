@@ -1,0 +1,8 @@
+/*
+    home.css: This file contains selectors only used in home.css
+
+    All pages share the styles on index.scss but you should create 
+    one more scss for each page that will contain the selected used 
+    on that page only (the ones not reused in other pages).
+*/
+@import "_variables";

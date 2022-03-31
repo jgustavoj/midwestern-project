@@ -1,19 +1,23 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { CompanyLogo } from "./CompanyLogo.js";
+import { Link, useHistory, useLocation } from "react-router-dom";
 
 export const Navbar = () => {
-	return (
-		<nav className="navbar navbar-light bg-light">
-			<div className="container">
-				<Link to="/">
-					<span className="navbar-brand mb-0 h1">React Boilerplate</span>
-				</Link>
-				<div className="ml-auto">
-					<Link to="/demo">
-						<button className="btn btn-primary">Check the Context in action</button>
-					</Link>
-				</div>
-			</div>
-		</nav>
-	);
+  const location = useLocation();
+  return (
+    <header className="container">
+      <nav className="header">
+        <div className="header__logo">
+          <CompanyLogo />
+        </div>
+        <div className="header__link">
+          {location.pathname === "/" ? (
+            <Link to="/contact">contact</Link>
+          ) : (
+            <Link to="/">home</Link>
+          )}
+        </div>
+      </nav>
+    </header>
+  );
 };
