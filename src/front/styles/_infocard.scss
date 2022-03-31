@@ -1,26 +1,47 @@
 @import "mixins";
+@import "variables";
 
 .info-card {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   height: 25rem;
   //   width: 95%;
   //   width: 22rem;
-  background-color: white;
+  background-color: $white;
   color: black;
   border-radius: 0.25rem;
   min-width: 0;
   margin-bottom: 0.5rem;
+  padding: 0 3rem;
+  // align-items: flex-start;
 
   &__img {
+    text-align: center;
+    margin-right: 2rem;
   }
 
   &__heading {
+    font-size: 36px;
+    margin: 0 1.35rem 0.5rem 0;
   }
 
   &__body {
+    color: $mid-gray;
+    margin-bottom: 2rem;
+
+    @include breakpoint-up(xlarge) {
+      margin-bottom: 1.5rem;
+    }
   }
 
   &__link {
+    text-align: center;
+  }
+
+  &__link a {
+    padding: 0.75rem 1.8rem;
+    background-color: $gold;
+    color: $white !important;
   }
 }

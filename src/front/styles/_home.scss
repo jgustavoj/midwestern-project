@@ -1,5 +1,5 @@
 /*
-    home.css: This file contains selectors only used in home.css
+    home.scss: This file contains selectors only used in home.scss
 
     All pages share the styles on index.scss but you should create 
     one more scss for each page that will contain the selected used 
@@ -8,7 +8,7 @@
 @import "_variables";
 @import "mixins";
 
-.content {
+.home-cards {
   @include breakpoint-up(medium) {
     padding: 0 5rem;
   }

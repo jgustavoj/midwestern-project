@@ -5,19 +5,24 @@ import Rabbit from "../../img/Rabbit.png";
 import Shield from "../../img/Shield.png";
 import "../../styles/_home.scss";
 import { InfoCard } from "../component/InfoCard.js";
+import { Challenge } from "../component/Challenge.js";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
 
   return (
     <>
-      <section className="container container--pall">
-        <div className="content">
+      <div className="container container--pall">
+        <section className="home-cards">
           <InfoCard image={Talkie} />
           <InfoCard image={Rabbit} />
           <InfoCard image={Shield} />
-        </div>
-      </section>
+        </section>
+
+        <section className="home-challenge">
+          <Challenge />
+        </section>
+      </div>
     </>
   );
 };

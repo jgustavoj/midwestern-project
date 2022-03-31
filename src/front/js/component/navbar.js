@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { ResponsiveImage } from "./ResponsiveImage.js";
-import logo from "../../img/logo.png";
-import { Link, useHistory, useLocation } from "react-router-dom";
+import Logo from "../../img/Logo.png";
+import { Link, useLocation } from "react-router-dom";
 
 export const Navbar = () => {
   const location = useLocation();
@@ -9,7 +9,7 @@ export const Navbar = () => {
     <header className="container">
       <nav className="header">
         <div className="header__logo">
-          <ResponsiveImage src={logo} />
+          <ResponsiveImage src={Logo} />
         </div>
         <div className="header__link">
           {location.pathname === "/" ? (

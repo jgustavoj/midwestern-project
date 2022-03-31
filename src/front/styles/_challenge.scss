@@ -1,0 +1,22 @@
+@import "variables";
+@import "mixins";
+
+.challenge {
+  &__heading {
+    font-size: 48px;
+  }
+
+  &__underline {
+    height: 4px;
+    margin: 0 0 2rem 0;
+    // color: $gold;
+    background-color: $gold;
+    border: 0;
+    opacity: 0.25;
+    width: 212px;
+  }
+
+  &__body {
+    color: $white !important;
+  }
+}
