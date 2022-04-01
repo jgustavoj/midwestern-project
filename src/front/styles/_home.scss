@@ -1,19 +1,14 @@
-/*
-    home.scss: This file contains selectors only used in home.scss
-
-    All pages share the styles on index.scss but you should create 
-    one more scss for each page that will contain the selected used 
-    on that page only (the ones not reused in other pages).
-*/
 @import "_variables";
 @import "mixins";
 
 .home-cards {
   @include breakpoint-up(medium) {
+    // inner container
     padding: 0 5rem;
   }
 
   @include breakpoint-up(large) {
+    // inner container
     padding: 0 10rem;
   }
 
@@ -21,6 +16,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
+    // inner container
     padding: 2rem;
   }
 }

@@ -16,8 +16,8 @@ export const Home = () => {
         <section className="home-cards">
           <InfoCard image={Talkie} />
           <InfoCard
-            styleImage={{ paddingTop: "1.5rem" }}
-            styleHeading={{ marginTop: "1rem" }}
+            styleImage={{ marginBottom: "2.5rem" }}
+            // styleHeading={{ marginTop: "2rem" }}
             image={Rabbit}
           />
           <InfoCard image={Shield} />

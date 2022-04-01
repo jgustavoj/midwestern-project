@@ -1,8 +1,9 @@
 @import "variables";
 @import "mixins";
 
-.challenge {
+.about {
   &__body {
     font-size: $font-md;
+    color: $white;
   }
 }

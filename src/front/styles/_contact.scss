@@ -1,0 +1,26 @@
+@import "mixins";
+@import "variables";
+
+.contact {
+  // inner container
+  padding: 1rem 2rem;
+
+  &__container {
+    height: calc(100vh - 50px);
+    background: linear-gradient(
+      to bottom,
+      $dark-gray 0%,
+      $dark-gray 50%,
+      $white 50%,
+      $white 100%
+    );
+  }
+
+  @include breakpoint-up(xlarge) {
+  }
+
+  &__message {
+    margin-top: 5rem;
+    padding: 1rem 2rem;
+  }
+}

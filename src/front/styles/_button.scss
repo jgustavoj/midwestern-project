@@ -1,0 +1,14 @@
+@import "mixins";
+@import "variables";
+
+.button {
+  display: flex;
+  text-align: center;
+  width: 130px;
+  height: 45px;
+  background-color: $gold;
+  color: $white !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

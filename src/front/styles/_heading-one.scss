@@ -1,0 +1,16 @@
+@import "variables";
+@import "mixins";
+
+.heading-one {
+  &__heading {
+    font-size: 48px;
+  }
+
+  &__underline {
+    height: 4px;
+    margin: 0 0 2rem 0;
+    background-color: $gold;
+    border: 0;
+    width: 212px;
+  }
+}
