@@ -15,7 +15,11 @@ export const Home = () => {
       <div className="container container--pall">
         <section className="home-cards">
           <InfoCard image={Talkie} />
-          <InfoCard image={Rabbit} />
+          <InfoCard
+            styleImage={{ paddingTop: "1.5rem" }}
+            styleHeading={{ marginTop: "1rem" }}
+            image={Rabbit}
+          />
           <InfoCard image={Shield} />
         </section>
 

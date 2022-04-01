@@ -24,3 +24,17 @@
     padding: 2rem;
   }
 }
+
+.home-challenge {
+  margin: 1.5rem;
+
+  @include breakpoint-up(medium) {
+    margin: 2rem 5rem;
+  }
+  @include breakpoint-up(large) {
+    margin: 2rem 10rem;
+  }
+  @include breakpoint-up(xlarge) {
+    margin: 2rem;
+  }
+}
