@@ -1,6 +1,23 @@
 @import "_variables";
 @import "mixins";
 
+.home-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 26px 16px;
+
+  @include breakpoint-up(xlarge) {
+    padding: 35px 32px;
+  }
+
+  &__link {
+    justify-self: end;
+    align-self: center;
+    font-size: $font-lg;
+  }
+}
+
 .home-cards {
   @include breakpoint-up(medium) {
     // inner container
