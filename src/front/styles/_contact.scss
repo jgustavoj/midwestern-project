@@ -3,20 +3,48 @@
 
 .contact {
   // inner container
-  padding: 1rem 2rem;
+  //   padding: 1rem 2rem;
+
+  //testing for inner container
+  //   padding: 0 0 1rem 10%;
+  //   padding-left: 10%;
 
   &__link-mobile-view {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-size: $font-lg;
+
     @include breakpoint-up(medium) {
       display: none;
     }
   }
 
   &__link-desktop-view {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-size: $font-lg;
+
     @include breakpoint-down(small) {
       display: none;
     }
   }
 
+  &__nav-heading-body-container {
+    padding: 5% 10%;
+  }
+
+  &__nav {
+    padding-bottom: 10%;
+  }
+
+  &__heading-input-container {
+    background-color: $white;
+    height: 100vh;
+    color: black;
+    padding: 5% 10%;
+  }
   &__container {
     // height: calc(100vh - 50px);
     // background: linear-gradient(
@@ -39,8 +67,9 @@
     // );
   }
 
-  &__message {
-    margin-top: 5rem;
-    padding: 1rem 2rem;
+  &__heading-two {
+    // margin-top: 5rem;
+    // padding: 1rem 2rem;
+    padding: 1rem 0.8rem;
   }
 }
