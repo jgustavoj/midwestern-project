@@ -7,6 +7,7 @@ import { HeadingTwo } from "../component/HeadingTwo.js";
 import { ResponsiveImage } from "../component/ResponsiveImage.js";
 import Logo from "../../img/Logo.png";
 import { InputField } from "../component/InputField.js";
+import { Button } from "../component/Button.js";
 
 export const Contact = () => {
   return (
@@ -56,11 +57,19 @@ export const Contact = () => {
                   </div>
                 </div>
                 <div className="row">
-                  <div className="col contact__input-container">
+                  {/* <div className="col-md-2"></div> */}
+                  <div className="col-md contact__input-container">
                     {/* <div>input container</div> */}
                     <InputField />
+                    <div className="contact__button">
+                      <Button value={"Submit"} />
+                    </div>
                   </div>
                 </div>
+                {/* <div className="col-md-2"></div> */}
+                {/* <div className="row">
+                  <div className="col contact__button"></div>
+                </div> */}
               </div>
             </div>
           </div>

@@ -33,7 +33,7 @@ export const InputField = () => {
           <div className="form-group col-md-12">
             <textarea
               class="form-control"
-              rows="10"
+              rows="8"
               placeholder="Message"></textarea>
           </div>
         </div>

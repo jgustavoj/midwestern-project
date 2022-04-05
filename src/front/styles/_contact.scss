@@ -33,38 +33,57 @@
 
   &__nav-heading-body-container {
     padding: 5% 10%;
+
+    @include breakpoint-up(medium) {
+      //   padding-left: 15rem;
+      background-color: blue;
+
+      //   padding: 0;
+    }
+
+    @include breakpoint-up(xlarge) {
+      background-color: red;
+      padding-top: 42.5px;
+      padding-left: 129px;
+      padding-right: 6%;
+    }
   }
 
   &__nav {
     padding-bottom: 10%;
   }
 
-  &__heading-input-container {
-    background-color: $white;
-    height: 100vh;
-    color: black;
-    padding: 5% 10%;
-  }
-  &__container {
-    // height: calc(100vh - 50px);
-    // background: linear-gradient(
-    //   to bottom,
-    //   $dark-gray 0%,
-    //   $dark-gray 50%,
-    //   $white 50%,
-    //   $white 100%
-    // );
+  &__body {
+    @include breakpoint-up(xlarge) {
+      margin-top: 7rem;
+    }
   }
 
-  @include breakpoint-up(xlarge) {
-    // height: calc(100vh - 50px);
-    // background: linear-gradient(
-    //   to right,
-    //   $dark-gray 0%,
-    //   $dark-gray 50%,
-    //   $white 50%,
-    //   $white 100%
-    // );
+  &__heading-input-container {
+    background-color: $white;
+    height: calc(100vh + 70px);
+
+    color: black;
+    padding: 5% 10%;
+
+    @include breakpoint-up(xlarge) {
+      padding-top: 42.5px;
+      padding-left: 100px;
+      padding-right: 6.5rem;
+      //   padding-right: 11%;
+    }
+  }
+  &__input-container {
+    @include breakpoint-up(xlarge) {
+      //   margin-left: -3rem;
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
   }
 
   &__heading-two {
