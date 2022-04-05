@@ -2,12 +2,12 @@
 @import "variables";
 
 .contact {
-  // inner container
-  //   padding: 1rem 2rem;
-
-  //testing for inner container
-  //   padding: 0 0 1rem 10%;
-  //   padding-left: 10%;
+  &__logo {
+    @include breakpoint-down(small) {
+      padding-left: 4px;
+      padding-right: 4px;
+    }
+  }
 
   &__link-mobile-view {
     display: flex;
@@ -15,7 +15,7 @@
     align-items: center;
     font-size: $font-lg;
 
-    @include breakpoint-up(medium) {
+    @include breakpoint-up(large) {
       display: none;
     }
   }
@@ -25,24 +25,22 @@
     justify-content: end;
     align-items: center;
     font-size: $font-lg;
+    margin-top: 1.4rem;
 
-    @include breakpoint-down(small) {
+    @include breakpoint-down(medium) {
       display: none;
     }
   }
 
   &__nav-heading-body-container {
-    padding: 5% 10%;
+    padding: 8% 10%;
 
     @include breakpoint-up(medium) {
-      //   padding-left: 15rem;
-      background-color: blue;
-
-      //   padding: 0;
+      //   background-color: blue;
     }
 
     @include breakpoint-up(xlarge) {
-      background-color: red;
+      //   background-color: red;
       padding-top: 42.5px;
       padding-left: 129px;
       padding-right: 6%;
@@ -50,7 +48,9 @@
   }
 
   &__nav {
-    padding-bottom: 10%;
+    padding-bottom: 8%;
+    @include breakpoint-down(small) {
+    }
   }
 
   &__body {
@@ -61,21 +61,35 @@
 
   &__heading-input-container {
     background-color: $white;
-    height: calc(100vh + 70px);
-
+    height: 100vh;
     color: black;
     padding: 5% 10%;
+
+    @include breakpoint-down(small) {
+      height: calc(100vh + 70px);
+    }
+
+    @include breakpoint-up(medium) {
+      padding: 5% 25%;
+    }
 
     @include breakpoint-up(xlarge) {
       padding-top: 42.5px;
       padding-left: 100px;
       padding-right: 6.5rem;
-      //   padding-right: 11%;
     }
   }
+
+  &__heading-two {
+    padding: 1rem 0.8rem;
+
+    @include breakpoint-up(xlarge) {
+      margin-top: 5.5rem;
+    }
+  }
+
   &__input-container {
     @include breakpoint-up(xlarge) {
-      //   margin-left: -3rem;
     }
   }
 
@@ -84,11 +98,5 @@
     justify-content: center;
     align-items: center;
     padding-top: 1rem;
-  }
-
-  &__heading-two {
-    // margin-top: 5rem;
-    // padding: 1rem 2rem;
-    padding: 1rem 0.8rem;
   }
 }
