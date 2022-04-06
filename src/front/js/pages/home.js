@@ -12,48 +12,9 @@ import { Link } from "react-router-dom";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
-  // const [loading, setLoading] = useState(true);
-  // const [state, setState] = useState({});
-  console.log("Store", store.data.content);
 
-  // useEffect(() => {
-  //   const url = "http://127.0.0.1:5000/" + "/api/home";
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await fetch(url);
-  //       const data = await response.json();
-  //       console.log(data);
-  //       setState(data[0]);
-  //     } catch (error) {
-  //       console.log("error", error);
-  //     }
-  //   };
-  //   fetchData();
-  //   // setLoading(false);
-  // }, []);
+  console.log("Store", store.data);
 
-  // useEffect(() => {
-  //   // setLoading(true);
-  //   const fetchData = () => {
-  //     fetch("http://127.0.0.1:5000/" + "/api/home")
-  //       .then((resp) => resp.json())
-  //       .then((data) => {
-  //         console.log("res 1", data[0]);
-  //         setLoading(false);
-  //         setState(data[0]);
-  //       })
-  //       .catch((error) =>
-  //         console.log("Error loading message from backend", error)
-  //       );
-  //   };
-  //   fetchData();
-  //   setLoading(false);
-  // }, []);
-
-  // console.log("state 1", state);
-  // if (loading) {
-  //   return <h1>Loading</h1>;
-  // }
   return (
     <>
       <div className="container container--pall">
@@ -64,13 +25,25 @@ export const Home = () => {
           </div>
         </section>
         <section className="home-cards">
-          <InfoCard body={store.data.content} image={Talkie} />
-          <InfoCard
+          {store.data.map((value) => {
+            return (
+              <InfoCard
+                key={value.id}
+                body={value.content}
+                image={value.image_url}
+                buttonBody={"Learn More"}
+              />
+            );
+          })}
+
+          {/* <InfoCard image={Talkie} buttonBody={"Learn More"} /> */}
+          {/* <InfoCard
             styleImage={{ marginBottom: "2.5rem" }}
             // styleHeading={{ marginTop: "2rem" }}
             image={Rabbit}
-          />
-          <InfoCard image={Shield} />
+          /> */}
+          {/* <InfoCard image={Rabbit} buttonBody={"Learn More"} />
+          <InfoCard image={Shield} buttonBody={"Learn More"} /> */}
         </section>
         <section className="home-challenge">
           <Challenge />

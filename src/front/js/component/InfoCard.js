@@ -18,7 +18,7 @@ export const InfoCard = (props) => {
         <p className="info-card__body">{props.body}</p>
 
         <div className="info-card__button">
-          <Button value={"Learn More"} />
+          <Button value={props.buttonBody} />
         </div>
       </div>
     </>
