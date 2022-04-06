@@ -29,3 +29,10 @@ def home():
         return jsonify({"content": all_home_content, "success": True}), 200  
     return "Invalid Method",  404
 
+@api.route('/contact', methods=['POST', 'GET'])
+def contact():
+    response_body = {
+        "contact": "this is contact view"
+    }
+
+    return jsonify(response_body), 200

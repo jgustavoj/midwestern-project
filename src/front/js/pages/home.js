@@ -1,8 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
-import Talkie from "../../img/Talkie.png";
-import Rabbit from "../../img/Rabbit.png";
-import Shield from "../../img/Shield.png";
 import Logo from "../../img/Logo.png";
 import "../../styles/_home.scss";
 import { InfoCard } from "../component/InfoCard.js";
@@ -12,8 +9,6 @@ import { Link } from "react-router-dom";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
-
-  console.log("Store", store.data);
 
   return (
     <>
@@ -32,6 +27,7 @@ export const Home = () => {
                 body={value.content}
                 image={value.image_url}
                 buttonBody={"Learn More"}
+                styleImage={value.id === 2 ? { marginBottom: "2.5rem" } : {}}
               />
             );
           })}
