@@ -12,35 +12,48 @@ import { Link } from "react-router-dom";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
-  const { loading, setLoading } = useState(true);
-  const { state, setState } = useState(null);
+  // const [loading, setLoading] = useState(true);
+  // const [state, setState] = useState({});
+  console.log("Store", store.data.content);
 
-  function load() {
-    function mockLoading() {
-      setLoading(true);
-      async function f() {
-        try {
-          let response = await fetch("http://127.0.0.1:5000/" + "/api/home");
-          let data = await response.json();
-          console.log("data", data);
-          setState({ meesage: data });
-        } catch (err) {
-          // catches errors both in fetch and response.json
-          console.log("Error loading message from backend", error);
-        }
-      }
-      f();
-      setLoading(false);
-    }
-  }
+  // useEffect(() => {
+  //   const url = "http://127.0.0.1:5000/" + "/api/home";
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await fetch(url);
+  //       const data = await response.json();
+  //       console.log(data);
+  //       setState(data[0]);
+  //     } catch (error) {
+  //       console.log("error", error);
+  //     }
+  //   };
+  //   fetchData();
+  //   // setLoading(false);
+  // }, []);
 
-  useEffect(() => {
-    load();
-  }, []);
+  // useEffect(() => {
+  //   // setLoading(true);
+  //   const fetchData = () => {
+  //     fetch("http://127.0.0.1:5000/" + "/api/home")
+  //       .then((resp) => resp.json())
+  //       .then((data) => {
+  //         console.log("res 1", data[0]);
+  //         setLoading(false);
+  //         setState(data[0]);
+  //       })
+  //       .catch((error) =>
+  //         console.log("Error loading message from backend", error)
+  //       );
+  //   };
+  //   fetchData();
+  //   setLoading(false);
+  // }, []);
 
-  if (loading) {
-    return <p>Loading</p>;
-  }
+  // console.log("state 1", state);
+  // if (loading) {
+  //   return <h1>Loading</h1>;
+  // }
   return (
     <>
       <div className="container container--pall">
@@ -51,7 +64,7 @@ export const Home = () => {
           </div>
         </section>
         <section className="home-cards">
-          <InfoCard image={Talkie} />
+          <InfoCard body={store.data.content} image={Talkie} />
           <InfoCard
             styleImage={{ marginBottom: "2.5rem" }}
             // styleHeading={{ marginTop: "2rem" }}
@@ -61,7 +74,6 @@ export const Home = () => {
         </section>
         <section className="home-challenge">
           <Challenge />
-          {/* <h1>{data.content}</h1> */}
         </section>
       </div>
     </>

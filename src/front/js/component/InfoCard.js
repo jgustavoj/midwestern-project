@@ -15,10 +15,7 @@ export const InfoCard = (props) => {
           <ResponsiveImage src={props.image} style={props.styleImage} />
         </div>
         <HeadingTwo style={props.styleHeading} />
-        <p className="info-card__body">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore
-        </p>
+        <p className="info-card__body">{props.body}</p>
 
         <div className="info-card__button">
           <Button value={"Learn More"} />
