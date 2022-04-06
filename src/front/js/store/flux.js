@@ -23,12 +23,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       getMessage: () => {
         // fetching data from the backend
-        fetch("http://127.0.0.1:5000/" + "/api/hello")
+        // fetch("http://127.0.0.1:5000/" + "/api/home")
+        fetch(process.env.BACKEND_URL + "/api/home")
           .then((resp) => resp.json())
-          .then((data) => setStore({ message: data.message }))
+          .then((data) => setStore({ message: data }))
+          // .then((data) => console.log("RESPONSE", data.content[0].content))
           .catch((error) =>
             console.log("Error loading message from backend", error)
           );
+        setLoading(false);
       },
       changeColor: (index, color) => {
         //get the store

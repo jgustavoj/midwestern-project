@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../store/appContext";
 import "../../styles/_infocard.scss";
 import { Button } from "./Button.js";
 import { HeadingTwo } from "./HeadingTwo";
 import { ResponsiveImage } from "./ResponsiveImage";
 
 export const InfoCard = (props) => {
+  const { store, actions } = useContext(Context);
+
   return (
     <>
       <div className="info-card">
