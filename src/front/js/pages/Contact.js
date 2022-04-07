@@ -4,7 +4,6 @@ import "../../styles/_contact.scss";
 import { HeadingTwo } from "../component/HeadingTwo.js";
 import { ResponsiveImage } from "../component/ResponsiveImage.js";
 import Logo from "../../img/Logo.png";
-import { InputField } from "../component/InputField.js";
 import { Button } from "../component/Button.js";
 import { Context } from "../store/appContext.js";
 import { InfoPanel } from "../component/InfoPanel.js";
@@ -12,25 +11,17 @@ import { useForm } from "react-hook-form";
 
 export const Contact = () => {
   const { store, actions } = useContext(Context);
-  const [input, setInput] = useState({
-    first_name: "",
-    last_name: "",
-    title: "",
-    email: "",
-    message: "",
-  });
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
-  console.log(errors);
-
-  const handleChange = (e) => {
-    setInput({ ...input, [e.target.name]: e.target.value });
+  const onSubmit = (contactInputData) => {
+    actions.submitForm(contactInputData);
+    reset();
+    console.log(errors);
   };
-
   return (
     <>
       <div className="container-fluid p-0">
@@ -83,7 +74,6 @@ export const Contact = () => {
                 </div>
                 <div className="row">
                   <div className="col-md contact__input-container">
-                    {/* FORM */}
                     <form>
                       <div className="row">
                         <div className="col-md-6">
@@ -92,7 +82,7 @@ export const Contact = () => {
                             placeholder="First name"
                             {...register("firstName", {
                               required: true,
-                              maxLength: 80,
+                              maxLength: 110,
                             })}
                             className={
                               errors?.firstName
@@ -107,7 +97,7 @@ export const Contact = () => {
                             placeholder="Last name"
                             {...register("lastName", {
                               required: true,
-                              maxLength: 100,
+                              maxLength: 110,
                             })}
                             className={
                               errors?.lastName
@@ -122,7 +112,10 @@ export const Contact = () => {
                           <input
                             type="text"
                             placeholder="Title"
-                            {...register("title", { required: true })}
+                            {...register("title", {
+                              required: true,
+                              maxLength: 110,
+                            })}
                             className={
                               errors?.title
                                 ? "is-invalid form-control"
@@ -136,6 +129,7 @@ export const Contact = () => {
                             placeholder="Email"
                             {...register("email", {
                               required: true,
+                              maxLength: 230,
                               pattern: /^\S+@\S+$/i,
                             })}
                             className={
@@ -160,97 +154,14 @@ export const Contact = () => {
                           />
                         </div>
                       </div>
-                      {/* <input type="submit" /> */}
                     </form>
-                    {/* <form>
-                      <div className="row">
-                        <div className="form-group col-md-6">
-                          <input
-                            onChange={handleChange}
-                            name="first_name"
-                            type="text"
-                            className="form-control"
-                            placeholder="First Name"
-                            value={input.first_name}
-                            autoFocus
-                          />
-                        </div>
-                        <div className="form-group col-md-6">
-                          <input
-                            onChange={handleChange}
-                            name="last_name"
-                            type="text"
-                            className="form-control"
-                            placeholder="Last Name"
-                            value={input.last_name}
-                          />
-                        </div>
-                      </div>
-                      <div className="row">
-                        <div className="form-group col-md-6">
-                          <input
-                            onChange={handleChange}
-                            name="title"
-                            type="text"
-                            className="form-control"
-                            placeholder="Title"
-                            value={input.title}
-                            required
-                          />
-                        </div>
-                        <div className="form-group col-md-6">
-                          <input
-                            onChange={handleChange}
-                            name="email"
-                            type="email"
-                            className="form-control"
-                            placeholder="Email"
-                            value={input.email}
-                            required
-                          />
-                        </div>
-                      </div>
-                      <div className="row">
-                        <div className="form-group col-md-12">
-                          <textarea
-                            onChange={handleChange}
-                            name="message"
-                            className="form-control"
-                            rows="8"
-                            placeholder="Message"
-                            value={input.message}
-                            required></textarea>
-                        </div>
-                      </div>
-                    </form> */}
+
                     <div className="contact__button">
                       <Button
                         type={"submit"}
                         value={"Submit"}
                         onClick={handleSubmit(onSubmit)}
                       />
-
-                      {/* <Button
-                        type={"submit"}
-                        value={"Submit"}
-                        onClick={() => {
-                          actions.submitForm(
-                            input.first_name,
-                            input.last_name,
-                            input.title,
-                            input.email,
-                            input.message
-                          );
-                          setInput({
-                            first_name: "",
-                            last_name: "",
-                            title: "",
-                            email: "",
-                            message: "",
-                          });
-                          alert("Contact Form Submitted!");
-                        }}
-                      /> */}
                     </div>
                   </div>
                 </div>

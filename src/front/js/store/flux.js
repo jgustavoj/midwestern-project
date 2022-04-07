@@ -20,18 +20,18 @@ const getState = ({ getStore, getActions, setStore }) => {
       exampleFunction: () => {
         getActions().changeColor(0, "green");
       },
-      submitForm: (first_name, last_name, title, email, message) => {
+      submitForm: (contactInputData) => {
         fetch(process.env.BACKEND_URL + "/api/contact", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            first_name: first_name,
-            last_name: last_name,
-            title: title,
-            email: email,
-            message: message,
+            first_name: contactInputData.firstName,
+            last_name: contactInputData.lastName,
+            title: contactInputData.title,
+            email: contactInputData.email,
+            message: contactInputData.message,
           }),
         })
           .then((res) => res.json())
