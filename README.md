@@ -1,4 +1,5 @@
-# Midwestern
+# <img src="https://github.com/jgustavoj/midwestern-project/blob/main/src/front/img/logo.png" />
+
 
 ### Back-End Manual Installation:
 
