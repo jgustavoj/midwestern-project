@@ -1,15 +1,28 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { HeadingOne } from "../component/HeadingOne.js";
 import "../../styles/_contact.scss";
-import { About } from "../component/About.js";
 import { HeadingTwo } from "../component/HeadingTwo.js";
 import { ResponsiveImage } from "../component/ResponsiveImage.js";
 import Logo from "../../img/Logo.png";
 import { InputField } from "../component/InputField.js";
 import { Button } from "../component/Button.js";
+import { Context } from "../store/appContext.js";
+import { InfoPanel } from "../component/InfoPanel.js";
 
 export const Contact = () => {
+  const { store, actions } = useContext(Context);
+  const [input, setInput] = useState({
+    first_name: "",
+    last_name: "",
+    title: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setInput({ ...input, [e.target.name]: e.target.value });
+  };
+
   return (
     <>
       <div className="container-fluid p-0">
@@ -29,8 +42,15 @@ export const Contact = () => {
                 <div className="row middle">
                   <div className="col">
                     <section className="contact__body">
-                      <HeadingOne />
-                      <About />
+                      {store.data
+                        .filter((value) => value.id === 4)
+                        .map((value) => (
+                          <InfoPanel
+                            key={value.id}
+                            HeadingOnebody={value.title}
+                            aboutBody={value.content}
+                          />
+                        ))}
                     </section>
                   </div>
                 </div>
@@ -52,9 +72,86 @@ export const Contact = () => {
                 </div>
                 <div className="row">
                   <div className="col-md contact__input-container">
-                    <InputField />
+                    <form>
+                      <div className="row">
+                        <div className="form-group col-md-6">
+                          <input
+                            onChange={handleChange}
+                            name="first_name"
+                            type="text"
+                            className="form-control"
+                            placeholder="First Name"
+                            value={input.first_name}
+                            autoFocus
+                          />
+                        </div>
+                        <div className="form-group col-md-6">
+                          <input
+                            onChange={handleChange}
+                            name="last_name"
+                            type="text"
+                            className="form-control"
+                            placeholder="Last Name"
+                            value={input.last_name}
+                          />
+                        </div>
+                      </div>
+                      <div className="row">
+                        <div className="form-group col-md-6">
+                          <input
+                            onChange={handleChange}
+                            name="title"
+                            type="text"
+                            className="form-control"
+                            placeholder="Title"
+                            value={input.title}
+                          />
+                        </div>
+                        <div className="form-group col-md-6">
+                          <input
+                            onChange={handleChange}
+                            name="email"
+                            type="email"
+                            className="form-control"
+                            placeholder="Email"
+                            value={input.email}
+                          />
+                        </div>
+                      </div>
+                      <div className="row">
+                        <div className="form-group col-md-12">
+                          <textarea
+                            onChange={handleChange}
+                            name="message"
+                            className="form-control"
+                            rows="8"
+                            placeholder="Message"
+                            value={input.message}></textarea>
+                        </div>
+                      </div>
+                    </form>
+                    {/* <InputField
+                      handleChange={handleChange}
+                      firstName={input.first_name}
+                      lastName={input.last_name}
+                      title={input.title}
+                      email={input.email}
+                      message={input.message}
+                    /> */}
                     <div className="contact__button">
-                      <Button value={"Submit"} />
+                      <Button
+                        onClick={() =>
+                          actions.submitForm(
+                            input.first_name,
+                            input.last_name,
+                            input.title,
+                            input.email,
+                            input.message
+                          )
+                        }
+                        type={"submit"}
+                        value={"Submit"}
+                      />
                     </div>
                   </div>
                 </div>

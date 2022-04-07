@@ -5,7 +5,7 @@ export const HeadingTwo = (props) => {
   return (
     <>
       <div className="heading-two w700" style={props.style}>
-        Heading Two
+        {props.headingTwoBody}
       </div>
     </>
   );

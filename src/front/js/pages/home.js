@@ -20,26 +20,21 @@ export const Home = () => {
           </div>
         </section>
         <section className="home-cards">
-          {store.data.map((value) => {
-            return (
-              <InfoCard
-                key={value.id}
-                body={value.content}
-                image={value.image_url}
-                buttonBody={"Learn More"}
-                styleImage={value.id === 2 ? { marginBottom: "2.5rem" } : {}}
-              />
-            );
-          })}
-
-          {/* <InfoCard image={Talkie} buttonBody={"Learn More"} /> */}
-          {/* <InfoCard
-            styleImage={{ marginBottom: "2.5rem" }}
-            // styleHeading={{ marginTop: "2rem" }}
-            image={Rabbit}
-          /> */}
-          {/* <InfoCard image={Rabbit} buttonBody={"Learn More"} />
-          <InfoCard image={Shield} buttonBody={"Learn More"} /> */}
+          {store.data
+            .filter((value) => value.label == "home")
+            .map((value) => {
+              return (
+                <InfoCard
+                  key={value.id}
+                  body={value.content}
+                  image={value.image_url}
+                  buttonBody={"Learn More"}
+                  headingBody={value.title}
+                  styleHeading={{ textAlign: "center" }}
+                  styleImage={value.id === 2 ? { marginBottom: "2.5rem" } : {}}
+                />
+              );
+            })}
         </section>
         <section className="home-challenge">
           <Challenge />

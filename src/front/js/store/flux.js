@@ -20,19 +20,37 @@ const getState = ({ getStore, getActions, setStore }) => {
       exampleFunction: () => {
         getActions().changeColor(0, "green");
       },
+      submitForm: (first_name, last_name, title, email, message) => {
+        console.log("body", first_name, last_name, title, email, message);
+        fetch(process.env.BACKEND_URL + "/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+          body: JSON.stringify({
+            first_name: first_name,
+            last_name: last_name,
+            title: title,
+            email: email,
+            message: message,
+          }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Success:", data);
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      },
 
       getData: () => {
         // fetching data from the backend
         // fetch(process.env.BACKEND_URL + "/api/home")
-        // fetch("http://127.0.0.1:5000/" + "/api/home")
-        // .then(resp => resp.json())
-        // 	.then(data => setStore({ data: data.content }))
-        // 	.catch(error => console.log("Error loading message from backend", error))
-
-        const url = "http://127.0.0.1:5000/" + "/api/home";
         const fetchData = async () => {
           try {
-            const response = await fetch(url);
+            const response = await fetch(process.env.BACKEND_URL + "/api/home");
             const data = await response.json();
             // console.log("data", data);
             setStore({ data: data.content });

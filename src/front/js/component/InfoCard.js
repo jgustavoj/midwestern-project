@@ -14,7 +14,10 @@ export const InfoCard = (props) => {
         <div className="info-card__img">
           <ResponsiveImage src={props.image} style={props.styleImage} />
         </div>
-        <HeadingTwo style={props.styleHeading} />
+        <HeadingTwo
+          headingTwoBody={props.headingBody}
+          style={props.styleHeading}
+        />
         <p className="info-card__body">{props.body}</p>
 
         <div className="info-card__button">

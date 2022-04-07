@@ -3,10 +3,11 @@ import "../../styles/_button.scss";
 
 export const Button = (props) => {
   return (
-    <>
-      <div className="button">
-        <div className="button__value">{props.value}</div>
-      </div>
-    </>
+    <button
+      className="button"
+      type={props.type || "button"}
+      onClick={props.onClick}>
+      {props.value}
+    </button>
   );
 };
