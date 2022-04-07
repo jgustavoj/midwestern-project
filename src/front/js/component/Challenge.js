@@ -2,10 +2,10 @@ import React from "react";
 import "../../styles/_challenge.scss";
 import { HeadingOne } from "./HeadingOne.js";
 
-export const Challenge = () => {
+export const Challenge = (props) => {
   return (
     <>
-      <HeadingOne />
+      <HeadingOne body={props.headingBody} />
       <div className="challenge__body">
         Remove the duplicates in 2 Javascript objects (found in readme), add the
         results to an array and output the list of distinct names in an

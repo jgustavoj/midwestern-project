@@ -22,10 +22,11 @@ def home():
 def contact_form():
     if request.method == 'POST':
         body = request.get_json()
-        print('Form', body)
         if body is None:
             raise APIException("You need to specify the request body as a json object", status_code=400)
-        form = ContactForm(first_name=body['first_name'], last_name=body['last_name'], title=body['title'], email=body['email'], message=body['message'])
+        form = ContactForm(first_name=body['first_name'],\
+            last_name=body['last_name'], title=body['title'],\
+            email=body['email'], message=body['message'])
         db.session.add(form)
         db.session.commit()
         return "OK", 200

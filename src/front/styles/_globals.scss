@@ -48,3 +48,8 @@ a {
   border: none;
   padding: 0.9rem 1.7rem;
 }
+
+.form-control.is-invalid,
+.was-validated .form-control:invalid {
+  border-color: blue !important;
+}

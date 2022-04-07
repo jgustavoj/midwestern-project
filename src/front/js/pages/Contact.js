@@ -8,6 +8,7 @@ import { InputField } from "../component/InputField.js";
 import { Button } from "../component/Button.js";
 import { Context } from "../store/appContext.js";
 import { InfoPanel } from "../component/InfoPanel.js";
+import { useForm } from "react-hook-form";
 
 export const Contact = () => {
   const { store, actions } = useContext(Context);
@@ -18,6 +19,13 @@ export const Contact = () => {
     email: "",
     message: "",
   });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => console.log(data);
+  console.log(errors);
 
   const handleChange = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
@@ -67,12 +75,94 @@ export const Contact = () => {
                 </div>
                 <div className="row">
                   <div className="col contact__heading-two">
-                    <HeadingTwo style={{ color: "black" }} />
+                    <HeadingTwo
+                      headingTwoBody={"Contact Us!"}
+                      style={{ color: "black" }}
+                    />
                   </div>
                 </div>
                 <div className="row">
                   <div className="col-md contact__input-container">
+                    {/* FORM */}
                     <form>
+                      <div className="row">
+                        <div className="col-md-6">
+                          <input
+                            type="text"
+                            placeholder="First name"
+                            {...register("firstName", {
+                              required: true,
+                              maxLength: 80,
+                            })}
+                            className={
+                              errors?.firstName
+                                ? "is-invalid form-control"
+                                : "form-control"
+                            }
+                          />
+                        </div>
+                        <div className="col-md-6">
+                          <input
+                            type="text"
+                            placeholder="Last name"
+                            {...register("lastName", {
+                              required: true,
+                              maxLength: 100,
+                            })}
+                            className={
+                              errors?.lastName
+                                ? "is-invalid form-control"
+                                : "form-control"
+                            }
+                          />
+                        </div>
+                      </div>
+                      <div className="row">
+                        <div className="col-md-6">
+                          <input
+                            type="text"
+                            placeholder="Title"
+                            {...register("title", { required: true })}
+                            className={
+                              errors?.title
+                                ? "is-invalid form-control"
+                                : "form-control"
+                            }
+                          />
+                        </div>
+                        <div className="col-md-6">
+                          <input
+                            type="email"
+                            placeholder="Email"
+                            {...register("email", {
+                              required: true,
+                              pattern: /^\S+@\S+$/i,
+                            })}
+                            className={
+                              errors?.email
+                                ? "is-invalid form-control"
+                                : "form-control"
+                            }
+                          />
+                        </div>
+                      </div>
+                      <div className="row">
+                        <div className="col-md-12">
+                          <input
+                            type="text"
+                            placeholder="Message"
+                            {...register("message", { required: true })}
+                            className={
+                              errors?.message
+                                ? "is-invalid form-control"
+                                : "form-control"
+                            }
+                          />
+                        </div>
+                      </div>
+                      {/* <input type="submit" /> */}
+                    </form>
+                    {/* <form>
                       <div className="row">
                         <div className="form-group col-md-6">
                           <input
@@ -105,6 +195,7 @@ export const Contact = () => {
                             className="form-control"
                             placeholder="Title"
                             value={input.title}
+                            required
                           />
                         </div>
                         <div className="form-group col-md-6">
@@ -115,6 +206,7 @@ export const Contact = () => {
                             className="form-control"
                             placeholder="Email"
                             value={input.email}
+                            required
                           />
                         </div>
                       </div>
@@ -126,32 +218,39 @@ export const Contact = () => {
                             className="form-control"
                             rows="8"
                             placeholder="Message"
-                            value={input.message}></textarea>
+                            value={input.message}
+                            required></textarea>
                         </div>
                       </div>
-                    </form>
-                    {/* <InputField
-                      handleChange={handleChange}
-                      firstName={input.first_name}
-                      lastName={input.last_name}
-                      title={input.title}
-                      email={input.email}
-                      message={input.message}
-                    /> */}
+                    </form> */}
                     <div className="contact__button">
                       <Button
-                        onClick={() =>
+                        type={"submit"}
+                        value={"Submit"}
+                        onClick={handleSubmit(onSubmit)}
+                      />
+
+                      {/* <Button
+                        type={"submit"}
+                        value={"Submit"}
+                        onClick={() => {
                           actions.submitForm(
                             input.first_name,
                             input.last_name,
                             input.title,
                             input.email,
                             input.message
-                          )
-                        }
-                        type={"submit"}
-                        value={"Submit"}
-                      />
+                          );
+                          setInput({
+                            first_name: "",
+                            last_name: "",
+                            title: "",
+                            email: "",
+                            message: "",
+                          });
+                          alert("Contact Form Submitted!");
+                        }}
+                      /> */}
                     </div>
                   </div>
                 </div>

@@ -37,7 +37,7 @@ export const Home = () => {
             })}
         </section>
         <section className="home-challenge">
-          <Challenge />
+          <Challenge headingBody={"Heading One"} />
         </section>
       </div>
     </>

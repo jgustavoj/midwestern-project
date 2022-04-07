@@ -21,12 +21,10 @@ const getState = ({ getStore, getActions, setStore }) => {
         getActions().changeColor(0, "green");
       },
       submitForm: (first_name, last_name, title, email, message) => {
-        console.log("body", first_name, last_name, title, email, message);
         fetch(process.env.BACKEND_URL + "/api/contact", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
           },
           body: JSON.stringify({
             first_name: first_name,
@@ -36,7 +34,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             message: message,
           }),
         })
-          .then((response) => response.json())
+          .then((res) => res.json())
           .then((data) => {
             console.log("Success:", data);
           })
@@ -48,17 +46,24 @@ const getState = ({ getStore, getActions, setStore }) => {
       getData: () => {
         // fetching data from the backend
         // fetch(process.env.BACKEND_URL + "/api/home")
-        const fetchData = async () => {
-          try {
-            const response = await fetch(process.env.BACKEND_URL + "/api/home");
-            const data = await response.json();
-            // console.log("data", data);
-            setStore({ data: data.content });
-          } catch (error) {
-            console.log("error", error);
-          }
-        };
-        fetchData();
+        // const fetchData = async () => {
+        //   try {
+        //     const response = await fetch(process.env.BACKEND_URL + "/api/home");
+        //     const data = await response.json();
+        //     // console.log("data", data);
+        //     setStore({ data: data.content });
+        //   } catch (error) {
+        //     console.log("error", error);
+        //   }
+        // };
+        // fetchData();
+
+        fetch(process.env.BACKEND_URL + "/api/home")
+          .then((resp) => resp.json())
+          .then((data) => setStore({ data: data.content }))
+          .catch((error) =>
+            console.error("Error loading message from backend", error)
+          );
       },
       changeColor: (index, color) => {
         //get the store
