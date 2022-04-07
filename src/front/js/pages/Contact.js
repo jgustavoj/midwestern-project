@@ -37,7 +37,6 @@ export const Contact = () => {
                     <Link to="/">home</Link>
                   </div>
                 </div>
-
                 <div className="row middle">
                   <div className="col">
                     <section className="contact__body">

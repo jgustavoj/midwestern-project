@@ -31,7 +31,7 @@ export const Home = () => {
                   buttonBody={"Learn More"}
                   headingBody={value.title}
                   styleHeading={{ textAlign: "center" }}
-                  styleImage={value.id === 2 ? { marginBottom: "2.5rem" } : {}}
+                  styleImage={value.id === 3 ? { marginBottom: "2.5rem" } : {}}
                 />
               );
             })}

@@ -1,5 +1,6 @@
 import React from "react";
 import "../../styles/_heading-one.scss";
+import PropTypes from "prop-types";
 
 export const HeadingOne = (props) => {
   return (
@@ -12,4 +13,9 @@ export const HeadingOne = (props) => {
       </div>
     </>
   );
+};
+
+HeadingOne.propTypes = {
+  style: PropTypes.string,
+  body: PropTypes.string,
 };
