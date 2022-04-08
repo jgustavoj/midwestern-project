@@ -13,6 +13,6 @@ export const HeadingTwo = (props) => {
 };
 
 HeadingTwo.propTypes = {
-  style: PropTypes.string,
+  style: PropTypes.object,
   headingTwoBody: PropTypes.string,
 };
