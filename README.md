@@ -1,4 +1,4 @@
-# <img src="https://github.com/jgustavoj/midwestern-project/blob/main/src/front/img/logo.png" />
+# <div align="center"> <img src="https://github.com/jgustavoj/midwestern-project/blob/main/src/front/img/logo.png" /> </div>
 ### Front-End and Back-End Challenge
 
 -  <a href="https://github.com/Midwestern-Interactive/tech-challenge" target="_blank" >Link </a> to challenge instructions
