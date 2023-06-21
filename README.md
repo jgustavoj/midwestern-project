@@ -1,5 +1,5 @@
 # <div align="center"> <img src="https://github.com/jgustavoj/midwestern-project/blob/main/src/front/img/logo.png" /> </div>
-### Front-End and Back-End Challenge
+### Front-End and Back-End Instructions
 
 -  <a href="https://github.com/Midwestern-Interactive/tech-challenge" target="_blank" >Link </a> to challenge instructions
 -  <a href="https://www.figma.com/file/ftGw3xU7H5abBHHcZYitxE/Benchmark?node-id=0%3A1" target="_blank"> Link </a> to mockup
@@ -30,7 +30,7 @@ It is recomended to install the backend first, make sure you have Python 3.8, Pi
 1. Install the packages: `$ npm install`
 2. Start coding! start the webpack dev server `$ npm run start`
 
-### Live GIF
+### Live gif of completed project
 
 <img src="https://github.com/jgustavoj/midwestern-project/blob/main/src/front/img/Animation.gif" />
 
