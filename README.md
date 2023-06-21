@@ -1,7 +1,7 @@
 # <div align="center"> <img src="https://github.com/jgustavoj/midwestern-project/blob/main/src/front/img/logo.png" /> </div>
 ### Front-End and Back-End Instructions
 
--  <a href="https://github.com/Midwestern-Interactive/tech-challenge" target="_blank" >Link </a> to challenge instructions
+-  <a href="https://github.com/Midwestern-Interactive/tech-challenge" target="_blank" >Link </a> to instructions
 -  <a href="https://www.figma.com/file/ftGw3xU7H5abBHHcZYitxE/Benchmark?node-id=0%3A1" target="_blank"> Link </a> to mockup
 
 ### Back-End Manual Installation:
